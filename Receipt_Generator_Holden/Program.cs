@@ -17,31 +17,37 @@ public class Program
     static decimal priceNum = 0;
 
 
+   
 
 	public static void Main()
     //start main at the brackets below, wanted to possibly use seperate methods
 
     // the following method name is not in play: static cashierCounter(); 
 	{
-		Console.WriteLine("Our system is down, you'll have to pay cash today.");
+         //define our USA money logic
+        var usCulture = CultureInfo.GetCultureInfo("en-US");
+		
+        Console.WriteLine("Our system is down, you'll have to pay cash today.");
 		Console.WriteLine("Let's tally up your items, one kind of item at a time");
 		Console.WriteLine("Please tell me what item you've got, how many of them" +
         "\n and the price on the shelf for that item ");
 
         //item
-        Console.WriteLine("Let's get the price on that there in your hand");
+        Console.WriteLine("whats the brand name of that thing in your hand?");
         itemName = Console.ReadLine();
 
         //quantity
         Console.WriteLine("How many have you got?");
         quantityString = Console.ReadLine();
-        //use string itemQuant to fill decimal quantityInt
-        if (decimal.TryParse(quantityString, out decimal quantityInt))
+        //use string itemQuantity to fill decimal quantityInt
+        if (int.TryParse(quantityString, out int quantityInt))
             {
                 //nothing to see here..... maybe
                 //return itemPrice;
-                //actually the number conversion here
-
+                
+            //force dollar currency formatting and add specifically 2 decimal places
+            //does line 50 about quantityInt.ToString need to be there???
+                string quantityString = quantityInt.ToString("C2", usCulture);
             }
             else
             {
@@ -57,6 +63,7 @@ public class Program
             {
                 //nothing to see here..... maybe
                 //return itemPrice;
+                string priceString = priceNum.ToString("C2", usCulture);
             }
             else
             {
@@ -73,12 +80,17 @@ public class Program
         Console.WriteLine("Great! Let me work up your total...");
         Console.WriteLine("Thank you for the cash here's your receipt");
         Console.WriteLine("----Receipt----");
-        //do the logic for turning into cultured dollar amounts
-        
 
-        
+       // int GrandTotal = tryParse * quant;
         /*add quantityString and string priceString to functionality in receipt */
-        Console.WriteLine($"Your total for {itemName} is ");
+        Console.WriteLine($"Item: {itemName}");
+        Console.WriteLine($"Amount: {quantityInt}"); //wanted to stick this in the parenthesis of ToString()
+        Console.WriteLine($"{priceNum.ToString("C2", usCulture)} per item");
+        Console.WriteLine($"Grand Total: {(priceNum * quantityInt).ToString("C2", usCulture)}");
+        Console.WriteLine("Thank you");
+
+
+                    /* maybe do this calculation a little earlier */
         
 	}
 }
