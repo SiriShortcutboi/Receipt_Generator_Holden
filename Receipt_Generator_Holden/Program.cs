@@ -40,14 +40,13 @@ public class Program
         Console.WriteLine("How many have you got?");
         quantityString = Console.ReadLine();
         //use string itemQuantity to fill decimal quantityInt
-        if (int.TryParse(quantityString, out int quantityInt))
+        if (int.TryParse(quantityString, out quantityInt))
             {
                 //nothing to see here..... maybe
                 //return itemPrice;
                 
             //force dollar currency formatting and add specifically 2 decimal places
             //does line 50 about quantityInt.ToString need to be there???
-                string quantityString = quantityInt.ToString("C2", usCulture);
             }
             else
             {
@@ -59,11 +58,10 @@ public class Program
         Console.WriteLine("Whats the price tag on that?");
         priceString = Console.ReadLine();
         //use string priceString to get string to convert into decimal priceNum
-        if (decimal.TryParse(priceString, out decimal priceNum))
+        if (decimal.TryParse(priceString, out priceNum))
             {
                 //nothing to see here..... maybe
                 //return itemPrice;
-                string priceString = priceNum.ToString("C2", usCulture);
             }
             else
             {
