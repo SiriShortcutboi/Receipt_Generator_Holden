@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Globalization;
 					
 public class Program
@@ -34,40 +34,39 @@ public class Program
 
         //item
         Console.WriteLine("whats the brand name of that thing in your hand?");
-        itemName = Console.ReadLine() ?? string.Empty;
+        itemName = Console.ReadLine();
 
         //quantity
-        while (true)
-        {
-            Console.WriteLine("How many have you got?");
-            quantityString = Console.ReadLine() ?? string.Empty;
-
-            //use string itemQuantity to fill decimal quantityInt
-            if (int.TryParse(quantityString, out quantityInt))
+        Console.WriteLine("How many have you got?");
+        quantityString = Console.ReadLine();
+        //use string itemQuantity to fill decimal quantityInt
+        if (int.TryParse(quantityString, out quantityInt))
             {
-                //force dollar currency formatting and add specifically 2 decimal places
-                //does line 50 about quantityInt.ToString need to be there???
-                break;
+                //nothing to see here..... maybe
+                //return itemPrice;
+                
+            //force dollar currency formatting and add specifically 2 decimal places
+            //does line 50 about quantityInt.ToString need to be there???
             }
-
-            Console.WriteLine("Say again?");
-        }
+            else
+            {
+            Console.WriteLine("Say again?");   
+            }
 
 
         //price 
-        while (true)
-        {
-            Console.WriteLine("Whats the price tag on that?");
-            priceString = Console.ReadLine() ?? string.Empty;
-
-            //use string priceString to get string to convert into decimal priceNum
-            if (decimal.TryParse(priceString, out priceNum))
+        Console.WriteLine("Whats the price tag on that?");
+        priceString = Console.ReadLine();
+        //use string priceString to get string to convert into decimal priceNum
+        if (decimal.TryParse(priceString, out priceNum))
             {
-                break;
+                //nothing to see here..... maybe
+                //return itemPrice;
             }
-
+            else
+            {
             Console.WriteLine("Say again?");
-        }
+            }
                                             //not important anymore i think
                                             /* = Console.ReadLine();
                                                 itemQuant = Console.ReadLine();
@@ -78,7 +77,7 @@ public class Program
         //ring up the receipt                                                
         Console.WriteLine("Great! Let me work up your total...");
         Console.WriteLine("Thank you for the cash here's your receipt");
-        Console.WriteLine("----Receipt----");
+        Console.WriteLine("\n----Receipt----");
 
        // int GrandTotal = tryParse * quant;
         /*add quantityString and string priceString to functionality in receipt */
