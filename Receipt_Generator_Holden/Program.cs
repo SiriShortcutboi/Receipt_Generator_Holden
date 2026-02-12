@@ -34,39 +34,40 @@ public class Program
 
         //item
         Console.WriteLine("whats the brand name of that thing in your hand?");
-        itemName = Console.ReadLine();
+        itemName = Console.ReadLine() ?? string.Empty;
 
         //quantity
-        Console.WriteLine("How many have you got?");
-        quantityString = Console.ReadLine();
-        //use string itemQuantity to fill decimal quantityInt
-        if (int.TryParse(quantityString, out quantityInt))
+        while (true)
+        {
+            Console.WriteLine("How many have you got?");
+            quantityString = Console.ReadLine() ?? string.Empty;
+
+            //use string itemQuantity to fill decimal quantityInt
+            if (int.TryParse(quantityString, out quantityInt))
             {
-                //nothing to see here..... maybe
-                //return itemPrice;
-                
-            //force dollar currency formatting and add specifically 2 decimal places
-            //does line 50 about quantityInt.ToString need to be there???
+                //force dollar currency formatting and add specifically 2 decimal places
+                //does line 50 about quantityInt.ToString need to be there???
+                break;
             }
-            else
-            {
-            Console.WriteLine("Say again?");   
-            }
+
+            Console.WriteLine("Say again?");
+        }
 
 
         //price 
-        Console.WriteLine("Whats the price tag on that?");
-        priceString = Console.ReadLine();
-        //use string priceString to get string to convert into decimal priceNum
-        if (decimal.TryParse(priceString, out priceNum))
+        while (true)
+        {
+            Console.WriteLine("Whats the price tag on that?");
+            priceString = Console.ReadLine() ?? string.Empty;
+
+            //use string priceString to get string to convert into decimal priceNum
+            if (decimal.TryParse(priceString, out priceNum))
             {
-                //nothing to see here..... maybe
-                //return itemPrice;
+                break;
             }
-            else
-            {
+
             Console.WriteLine("Say again?");
-            }
+        }
                                             //not important anymore i think
                                             /* = Console.ReadLine();
                                                 itemQuant = Console.ReadLine();
